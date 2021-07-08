@@ -1,13 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-tab3',
-  templateUrl: 'tab3.page.html',
-  styleUrls: ['tab3.page.scss']
+  selector: 'app-dark-mode-toggle',
+  templateUrl: './dark-mode-toggle.component.html',
+  styleUrls: ['./dark-mode-toggle.component.scss'],
 })
-export class Tab3Page {
+export class DarkModeToggleComponent implements OnInit {
 
-  constructor() {}
+  constructor() { }
+
+  ngOnInit() {}
 
   toggleDarkModeHandler() {
     document.body.classList.toggle("dark");

@@ -8,12 +8,16 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
+        path: 'Auth',
+        loadChildren: () => import('./Auth/auth.module').then(m => m.AuthPageModule)
+      },
+      {
         path: 'Home',
-        loadChildren: () => import('./Home/tab2.module').then(m => m.Tab2PageModule)
+        loadChildren: () => import('./Home/home.module').then(m => m.Tab2PageModule)
       },
       {
         path: 'Profile',
-        loadChildren: () => import('./Profile/tab3.module').then(m => m.Tab3PageModule)
+        loadChildren: () => import('./Profile/profile.module').then(m => m.Tab3PageModule)
       },
       {
         path: '',

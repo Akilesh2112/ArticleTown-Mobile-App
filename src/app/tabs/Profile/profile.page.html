@@ -3,20 +3,19 @@
     <ion-title>
       Profile
     </ion-title>
+
+    <ion-buttons slot="end">
+      <app-popover-controller></app-popover-controller>
+    </ion-buttons>
+
   </ion-toolbar>
 </ion-header>
 
 
 <ion-content [fullscreen]="true">
-  <ion-header>
-    <ion-toolbar>
-      <app-dark-mode-toggle></app-dark-mode-toggle>
-    </ion-toolbar>
-  </ion-header>
+  <app-edit-post></app-edit-post>
 </ion-content>
 
 <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-  <ion-fab-button color="dark">
-    <ion-icon name="add-outline"></ion-icon>
-  </ion-fab-button>
+  <app-create-post></app-create-post>
 </ion-fab>

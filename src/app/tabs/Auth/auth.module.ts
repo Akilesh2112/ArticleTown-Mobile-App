@@ -9,7 +9,8 @@ import { AuthPageRoutingModule } from './auth-routing.module';
 import { AuthPage } from './auth.page';
 
 //Importing core module
-import {CoreModule} from "../../core/core.module";
+import { CoreModule } from '../../core/core.module';
+
 
 @NgModule({
   imports: [
@@ -19,6 +20,6 @@ import {CoreModule} from "../../core/core.module";
     AuthPageRoutingModule,
     CoreModule
   ],
-  declarations: [AuthPage]
+  declarations: [AuthPage],
 })
-export class AuthPageModule {}
+export class AuthPageModule { }

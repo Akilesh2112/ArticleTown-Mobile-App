@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+//import { CreatePostComponent } from 'src/app/shared/create-post/create-post.component';
+
 
 @Component({
   selector: 'app-tab3',
@@ -7,6 +9,8 @@ import { Component } from '@angular/core';
 })
 export class ProfilePage {
 
-  constructor() {}
+  constructor() { }
+
+
 
 }

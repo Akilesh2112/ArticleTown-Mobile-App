@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth-service/auth.service';
 
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AlertController, LoadingController } from '@ionic/angular';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-authentication',
   templateUrl: './authentication.component.html',
@@ -8,24 +12,50 @@ import { AuthService } from '../services/auth-service/auth.service';
 })
 export class AuthenticationComponent implements OnInit {
 
-  sample=  null;
+  credentials: FormGroup;
 
-  constructor(private logIn: AuthService) { }
+  constructor(
+    private authService: AuthService,
+    private fb: FormBuilder,
+    private alertController: AlertController,
+    private router: Router,
+    private loadingController: LoadingController
+    ) { }
 
   ngOnInit() {
-    this.logIn.userAuth().subscribe(res => this.sample = res);
-
-    // this.logIn.getMessage('2463').subscribe((res) => {
-    //   console.log(res);
-    // });
-
-    const testMessage = {
-      content: 'Hello!',
-      submittedBy: 'Josh'
-    };
-    // this.logIn.createMessage(testMessage).subscribe((res) => {
-    //   console.log(res);
-    // });
+    this.credentials = this.fb.group({
+    email: ['eve.holt@reqres.in', [Validators.required, Validators.email]],
+    password: ['cityslicka', [Validators.required, Validators.minLength(6)]],
+  });
   }
 
+  // async login() {
+  //   const loading = await this.loadingController.create();
+  //   await loading.present();
+
+  //   this.authService.login(this.credentials.value).subscribe(
+  //     async (res) => {
+  //       await loading.dismiss();
+  //       this.router.navigateByUrl('/tabs', { replaceUrl: true });
+  //     }, async (res) => {
+  //       await loading.dismiss();
+  //       const alert = await this.alertController.create({
+  //         header: 'Login failed',
+  //         message: res.error.error,
+  //         buttons: ['OK'],
+  //       });
+
+  //       await alert.present();
+  //     }
+  //   );
+  // }
+
+
+  get email() {
+    return this.credentials.get('email');
+  }
+
+  get password() {
+    return this.credentials.get('password');
+  }
 }

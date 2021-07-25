@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: 'Auth',
-    loadChildren: () => import('./tabs/Auth/auth.module').then(m => m.AuthPageModule)
+    loadChildren: () => import('./shared/pages/Auth/auth.module').then(m => m.AuthPageModule)
   }
 ];
 @NgModule({
